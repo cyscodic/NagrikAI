@@ -1,115 +1,96 @@
 # 🏛️ NagrikAI — Smart Civic Governance Platform for NDMC
 
-[![Production Build](https://img.shields.io/badge/Build-Passing-10B981?style=for-the-badge&logo=vite&logoColor=white)](https://github.com/cyscodic/NagrikAI)
-[![Framework](https://img.shields.io/badge/React-19.2-2563EB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
-[![Styling](https://img.shields.io/badge/TailwindCSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Backend API](https://img.shields.io/badge/Express.js-4.19-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![Live Cloud AI](https://img.shields.io/badge/Cloud_AI_Microservice-Render_24/7-10B981?style=for-the-badge&logo=render&logoColor=white)](https://nagrikai-ahtq.onrender.com)
-[![Bilingual Accessibility](https://img.shields.io/badge/Language-English_%2B_Devanagari_Hindi-FF9933?style=for-the-badge)](https://github.com/cyscodic/NagrikAI)
+> **AI-Powered Grievance Redressal, Automated SLA Governance, & Vector Duplicate Detection for the New Delhi Municipal Council.**
 
-**NagrikAI** is an AI-powered, multi-tenant citizen complaint management web platform built specifically for the **New Delhi Municipal Council (NDMC)**. It automates civic grievance intake, natural language intent classification, priority detection, duplicate complaint merging, SLA enforcement, and executive governance analytics.
-
----
-
-## 🌟 Key Features & Capabilities
-
-### 👤 1. Citizen Portal & Guided Intake Wizard
-- **Natural Language Intake**: Citizens describe civic problems in casual Hinglish, Devanagari Hindi, or English without needing technical jargon.
-- **4-Step Guided Filing**: Intuitively guides users through Problem Intake ➔ Ward/Location Selection ➔ Photo Evidence ➔ AI Triage Summary.
-- **100% Bilingual Accessibility**: Enforces English and Devanagari Hindi typography across all screens.
-- **Live Ticket Tracker**: Search grievances by Reference ID (e.g. `NDMC-2026-ELEC-4921`) or Phone Number with live SLA countdown timers and step-by-step resolution logs.
+[![Live Cloud AI](https://img.shields.io/badge/Live_Cloud_AI-https%3A%2F%2Fnagrikai--ahtq.onrender.com-0D9488?style=for-the-badge&logo=render)](https://nagrikai-ahtq.onrender.com)
+[![React 19](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-8.2-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38BDF8?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com)
+[![Node.js Express](https://img.shields.io/badge/Node.js-Express-68A063?style=for-the-badge&logo=express)](https://expressjs.com)
 
 ---
 
-### 🤖 2. Cloud AI Microservice Integration (`https://nagrikai-ahtq.onrender.com`)
-- **Live Intent Classifier (`POST /api/ai/classify`)**: Auto-categorizes citizen text across 16 NDMC departments with up to **99% precision**.
-- **Safety Priority Engine**: Automatically flags life-threatening hazards (live wires, gas leaks, sewage contamination) as **🔴 Critical Priority (2-Hour SLA Target)**.
-- **Vector Duplicate Detector (`POST /api/ai/check-duplicate`)**: Uses ChromaDB / Pinecone semantic embeddings to detect and link duplicate complaints within ward boundaries over a 72-hour window.
-- **NagrikAI Chatbot Assistant (`POST /api/ai/chat`)**: RAG-powered conversational agent assisting citizens 24/7 with municipal helplines (1533) and ticket tracking.
+## 📌 Executive Overview
+
+**NagrikAI** is a production-grade, multi-tenant citizen complaint management web platform built specifically for the **New Delhi Municipal Council (NDMC)**. 
+
+Traditional civic complaint processes require citizens to guess administrative department names, deal with technical jargon, and suffer long resolution delays without tracking. NagrikAI automates the entire grievance lifecycle:
+1. **Natural Language Intake**: Citizens describe issues in Hinglish, Devanagari Hindi, or English.
+2. **AI Intent Triage**: Automatically categorizes complaints across 16 NDMC divisions with up to **99% precision**.
+3. **Safety Priority Detection**: Flags critical hazards (live wires, fire risks, sewage leaks) and assigns strict SLA targets (2–4 Hours).
+4. **Vector Duplicate Merging**: Prevents redundant field trips by merging similar reports in the same ward.
+5. **Real-time Resolution Tracking**: Citizens, field officers, and administrators monitor live progress via custom workstations.
 
 ---
 
-### 🏛️ 3. 16 NDMC Municipal Departments Directory
-Fully configured administrative taxonomy with customized category codes and critical SLA targets:
-1. `ELEC` — Electricity & Streetlighting (Critical SLA: 2 Hours)
-2. `CIVIL` — Civil Engineering & Roads (Critical SLA: 4 Hours)
-3. `PH` — Public Health & Sanitation (Critical SLA: 4 Hours)
-4. `HORT` — Horticulture & Public Parks (Critical SLA: 4 Hours)
-5. `FIRE` — Fire & Disaster Emergency (Critical SLA: 1 Hour)
-6. `MED` — Medical Services & Dispensaries (Critical SLA: 2 Hours)
-7. `AYUSH` — Ayush Dispensaries & Wellness (Critical SLA: 4 Hours)
-8. `ENF` — Municipal Enforcement & Hawkers (Critical SLA: 8 Hours)
-9. `PARK` — Parking Management & Traffic (Critical SLA: 8 Hours)
-10. `PTAX` — Property Tax & Revenue (Standard SLA: 48 Hours)
-11. `HOUS` — Municipal Housing & Colony Care (Critical SLA: 4 Hours)
-12. `TRANS` — Transport & Bus Stops (Critical SLA: 4 Hours)
-13. `SEC` — Security & CCTV Surveillance (Critical SLA: 1 Hour)
-14. `EDU` — Education & NDMC School Facilities (Critical SLA: 8 Hours)
-15. `WELF` — Social Welfare & Pensions (Standard SLA: 48 Hours)
-16. `EST` — Estate & Lease Allotments (Standard SLA: 48 Hours)
+## 🌟 Key Features
+
+- **🌐 100% Bilingual Accessibility**: English on top with Devanagari Hindi subtitles (`Noto Sans Devanagari`).
+- **📝 Guided 4-Step Filing Wizard**: Intake ➔ Ward & Location Selection ➔ Photo Evidence Attachment ➔ AI Triage Summary.
+- **🔍 Live Audit Tracker (`/track`)**: Look up any complaint by Reference ID (e.g. `NDMC-2026-ELEC-4921`) or Phone Number to view chronological logs and active SLA countdowns.
+- **👨‍💼 Field Officer Workstation (`/officer/dashboard`)**: Dedicated queue manager for field engineers to update ticket status (`In Progress` ➔ `Resolved`) with on-site inspection photos and notes.
+- **📊 Super Admin Command Center (`/admin/dashboard`)**: Real-time SLA compliance matrix, active escalations counter, and ward performance heatmaps.
 
 ---
 
-### 👨‍💼 4. Enterprise Workstations & Executive Dashboards
-- **Field Officer Workstation (`/officer/dashboard`)**: Dedicated queue manager for field engineers to transition ticket statuses (`In Progress` ➔ `Resolved`) with on-site verification notes.
-- **Super Admin Command Center (`/admin/dashboard`)**: Executive matrix displaying overall SLA compliance rate %, active escalations, and department performance heatmaps.
+## 🤖 AI & Automation Microservice Architecture
+
+The platform connects to a 24/7 cloud AI microservice hosted at **`https://nagrikai-ahtq.onrender.com`**:
+
+| Microservice Module | Cloud Endpoint | Technology | Purpose |
+| --- | --- | --- | --- |
+| **AI Classifier** | `POST /api/ai/classify` | LLM NLU Engine | Auto-detects department, category, priority, & keywords from Hinglish text. |
+| **Vector Duplicate Search** | `POST /api/ai/check-duplicate` | ChromaDB / Embeddings | Scans ward boundary within 72h to link duplicate tickets. |
+| **NagrikAI Chatbot** | `POST /api/ai/chat` | LangChain RAG Agent | Powers floating chat widget for 24/7 helpline queries and ticket lookups. |
 
 ---
 
-## 🛠️ Architecture & Technology Stack
+## 🏛️ 16 NDMC Department Directory
 
-```mermaid
-graph TD
-    A[Citizen / Field Officer / Admin UI - React 19] -->|REST API & State Store| B[Express REST API Server & LocalStorage Engine]
-    B -->|Live Cloud AI Microservice| C[Render Cloud AI Engine - 24/7]
-    B -->|Ward Routing Engine| D[16 NDMC Department Workstations]
-```
-
-### Full-Stack Specifications
-- **Frontend**: React 19.2, Vite 8.2, TailwindCSS v4, Lucide React, Recharts.
-- **Backend API**: Node.js v24, Express v4, CORS middleware (`server/index.js`).
-- **AI Microservice**: Live cloud host on Render (`https://nagrikai-ahtq.onrender.com`).
-- **Persistence**: Dual LocalStorage client-side persistence and Express REST API.
+1. ⚡ **Electricity & Streetlights** (`ELEC`) — Critical SLA: 2h
+2. 🏗️ **Civil Engineering & Roads** (`CIVIL`) — Critical SLA: 4h
+3. 🏥 **Public Health & Sanitation** (`PH`) — Critical SLA: 4h
+4. 🌳 **Horticulture & Parks** (`HORT`) — Critical SLA: 4h
+5. 🔥 **Fire Safety & Emergencies** (`FIRE`) — Critical SLA: 1h
+6. 🩺 **Medical Services** (`MED`) — Critical SLA: 2h
+7. 🧘 **Ayush Wellness** (`AYUSH`) — Critical SLA: 4h
+8. 🚨 **Enforcement & Hawkers** (`ENF`) — Critical SLA: 8h
+9. 🅿️ **Parking Management** (`PARK`) — Critical SLA: 8h
+10. 📋 **Property Tax & Revenue** (`PTAX`) — Standard SLA: 48h
+11. 🏠 **Municipal Housing** (`HOUS`) — Critical SLA: 4h
+12. 🚌 **Transport & Bus Stops** (`TRANS`) — Critical SLA: 4h
+13. 🛡️ **Security & Surveillance** (`SEC`) — Critical SLA: 1h
+14. 🎓 **Education & Schools** (`EDU`) — Critical SLA: 8h
+15. 🤝 **Social Welfare** (`WELF`) — Standard SLA: 48h
+16. 🏛️ **Estate & Property** (`EST`) — Standard SLA: 48h
 
 ---
 
-## 🚀 Quick Start & Installation
+## 💻 Getting Started (Local Development)
 
-### 1. Clone Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/cyscodic/NagrikAI.git
 cd NagrikAI
 ```
 
-### 2. Install Frontend Dependencies
+### 2. Install Dependencies
 ```bash
 npm install
+cd server && npm install && cd ..
 ```
 
-### 3. Install Server Dependencies
+### 3. Run Development Server
 ```bash
-cd server
-npm install
-cd ..
-```
+# Terminal 1 — Frontend Web App (http://localhost:5173)
+npm run dev
 
-### 4. Run Locally (Single Command)
-```powershell
-cd D:\NagrikAI\server; Start-Job { node index.js }; cd D:\NagrikAI; npm run dev
+# Terminal 2 — Backend Express REST Server (http://localhost:5000)
+cd server && node index.js
 ```
-- **Frontend Web App**: `http://localhost:5173`
-- **Backend REST Server**: `http://localhost:5000`
 
 ---
 
-## 📋 Team & Responsibility Matrix
+## 📄 License & Attribution
 
-| Engineering Area | Primary Lead | Key Deliverables |
-| --- | --- | --- |
-| **SDE Architecture** | **SDE Lead** | React 19 SPA, Tailwind UI Design System, Node.js Express REST Server, LocalStorage Engine, 3 Dashboards, 16 Dept Taxonomy |
-| **AI & Automation** | **AI Lead** | Live Cloud AI Microservice (`render.com`), LLM Intent Classifier, Vector Duplicate Detector, Chatbot RAG Assistant |
-
----
-
-## 📜 License & Governance
-Developed for the **New Delhi Municipal Council (NDMC)** Smart Governance Initiative. All rights reserved. © 2026 NDMC.
+Developed for the **New Delhi Municipal Council (NDMC) Smart Governance Initiative**. All rights reserved © 2026.
